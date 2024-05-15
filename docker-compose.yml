@@ -1,0 +1,12 @@
+version: '2.23.3'
+
+services:
+  web:
+    build:
+     context: ./back_end
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./back_end:/app
+    environment:
+      - NAME = dockerenv
