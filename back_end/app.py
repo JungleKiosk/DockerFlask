@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
 from os import environ
 from flask_sqlalchemy import SQLAlchemy
 
@@ -40,11 +40,22 @@ def home():
 def login():
     return render_template('home/user/login.html', page='login')
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('home/user/signup.html', page='signup')
+        
+        if request.method == 'POST':
+            name = request.form['name']
+            surname = request.form['surname']
+            email = request.form['email']
+            password = request.form['password']
 
+            new_user = Users(name=name, surname=surname, email=email, password=password)
+            db.session.add(new_user)
+            db.session.commit()
 
+            return redirect(url_for('home'))
+
+        return render_template('home/user/signup.html', page='signup')
 
 
 if __name__ == '__main__':
