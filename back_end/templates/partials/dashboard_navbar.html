@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container navbar mx-auto">
+      <a class="navbar-brand" href="/">
+        <img class="p-4" src="../../assets/img/nexushare-logo.svg" alt="nexushare logo" loading="lazy">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse px-4" id="navbarNav">
+        <ul class="navbar-nav flex-fill">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/dashboard">{{ languages['dashboard_nav_home'] }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/tags">{{ languages['dashboard_nav_tags'] }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/trainingMaterial">{{ languages['dashboard_nav_trainings'] }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/articles">{{ languages['dashboard_nav_articles'] }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard/users">{{ languages['dashboard_nav_users'] }}</a>
+          </li>
+          </ul>
+          <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+            {% if user %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ languages['nav_dropdown_hello'] }} {{user.name}}
+              </a>
+              <ul class="dropdown-menu">
+                {% if ("SUPER_ADMIN" or "ADMIN_ITALY" or "ADMIN_EGYPT" or "ADMIN_SPAIN" or "ADMIN_TUNISIA") in
+                user.roles%}
+                <li><a class="dropdown-item text-nexus-dark" href="/">{{ languages['dashboard_nav_dropdownBack'] }}</a></li>
+                <li class="dropdown-divider"></li>
+                {% endif %}
+                <li><a class="dropdown-item" href="/logout">{{ languages['dashboard_nav_dropdownLogout'] }}</a></li>
+              </ul>
+            </li>
+          </ul>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

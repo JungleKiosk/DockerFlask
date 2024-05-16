@@ -1,0 +1,57 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}
+{{user.name}} {{user.surname}} - Dashboard
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container mt-4 py-4">
+        <h1 class="fw-bold mb-4">Welcome, {{ user.name }}</h1>
+        <div class="row my-2">
+            <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                <div class="card">
+                    <h5 class="card-header">Tags</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Our keyword map</h5>
+                        <p class="card-text">Manage and organize tags.</p>
+                        <a href="#" class="btn btn-primary">View All</a>
+                        <a href="#" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                <div class="card">
+                    <h5 class="card-header">Users</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Our community</h5>
+                        <p class="card-text">Manage and organize users.</p>
+                        <a href="#" class="btn btn-primary">View All</a>
+                        <a href="#" class="btn btn-success">Add New</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                <div class="card">
+                    <h5 class="card-header">Articles</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Participate, publish and share</h5>
+                        <p class="card-text">Manage and organize articles.</p>
+                        <a href="#" class="btn btn-primary">View All</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                <div class="card">
+                    <h5 class="card-header">Trainings</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Start here</h5>
+                        <p class="card-text">Manage and organize trainings.</p>
+                        <a href="#" class="btn btn-primary">View All</a>
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </div>
+</main>
+{% endblock %}
