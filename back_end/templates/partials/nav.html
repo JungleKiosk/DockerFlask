@@ -1,10 +1,22 @@
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand mx-5" href="/">JungleKiosk</a>
-        {% if page == 'login' %}
-            <a class="btn btn-primary mx-5" href="/signup">Signin</a>
+        {% if user %}
+            <div class="dropdown mx-5">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hello, {{ user.name }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </div>
         {% else %}
-            <a class="btn btn-primary mx-5" href="/login">Login</a>
+            {% if page == 'login' %}
+                <a class="btn btn-primary mx-5" href="/signup">Signin</a>
+            {% else %}
+                <a class="btn btn-primary mx-5" href="/login">Login</a>
+            {% endif %}
         {% endif %}
     </nav>
 </header>
